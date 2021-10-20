@@ -1,5 +1,5 @@
 ## [Unreleased]
 
-## [0.1.0] - 2021-10-18
+## [0.0.1] - 2021-11-08
 
-- Initial release
+- Add Bored.now() method, returning an activity
