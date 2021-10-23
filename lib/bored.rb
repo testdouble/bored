@@ -3,6 +3,7 @@
 require "net/http"
 require "json"
 require_relative "bored/version"
+require_relative "bored/cli"
 
 module Bored
   class Error < StandardError; end
