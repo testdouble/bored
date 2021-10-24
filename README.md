@@ -1,43 +1,49 @@
 # Bored
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bored`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is a simple example gem developed for the conference talk ["How to make a
+gem of a gem"](https://rubyconf.org/program/sessions#session-1203) at
+[RubyConf](https://rubyconf.org) 2021.
 
-TODO: Delete this and the text above, and describe your gem
+The Bored gem calls the [Bored API](https://www.boredapi.com) and returns random
+activity ideas.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+The installation process is boring, but familiar!
 
 ```ruby
-gem 'bored'
+$ gem install bored
 ```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install bored
 
 ## Usage
 
-TODO: Write usage instructions here
+### CLI
 
-## Development
+Once installed, run:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```
+$ bored
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+And an activity will be printed. That's it!
 
-## Contributing
+### API
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/searls/bored. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/searls/bored/blob/main/CODE_OF_CONDUCT.md).
+To invoke the gem programmatically, just call:
 
-## License
+```ruby
+Bored.now
+```
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+This will return an
+[Activity](https://github.com/testdouble/bored/blob/main/lib/bored.rb#L11-L15)
+object.
 
 ## Code of Conduct
 
-Everyone interacting in the Bored project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/searls/bored/blob/main/CODE_OF_CONDUCT.md).
+This project follows Test Double's [code of
+conduct](https://testdouble.com/code-of-conduct) for all community interactions,
+including (but not limited to) one-on-one communications, public posts/comments,
+code reviews, pull requests, and GitHub issues. If violations occur, Test Double
+will take any action they deem appropriate for the infraction, up to and
+including blocking a user from the organization's repositories.
