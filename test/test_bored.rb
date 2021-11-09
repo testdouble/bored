@@ -21,4 +21,22 @@ class TestBored < Minitest::Test
     assert (0..1).cover?(activity.price)
     assert [String, NilClass].include?(activity.link.class)
   end
+
+  def test_that_it_gives_you_an_activity_with_a_specific_key
+    activity = Bored.now(key: "1878070")
+
+    assert_kind_of String, activity.description
+    assert_equal "Volunteer at your local food pantry", activity.description
+    assert_includes([
+      :education, :recreational, :social, :diy, :charity,
+      :cooking, :relaxation, :music, :busywork
+    ], activity.type)
+  end
+
+  def test_that_it_gives_you_an_error_with_a_bad_key
+    activity = Bored.now(key: "bogus")
+
+    assert_kind_of String, activity.description
+    assert_equal "No activity found with the specified parameters", activity.description
+  end
 end
