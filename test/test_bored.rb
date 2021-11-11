@@ -21,4 +21,19 @@ class TestBored < Minitest::Test
     assert (0..1).cover?(activity.price)
     assert [String, NilClass].include?(activity.link.class)
   end
+
+  def test_that_you_can_query_by_participants
+    activity = Bored.now(participants: 3)
+
+    assert_kind_of Numeric, activity.id
+    assert_kind_of String, activity.description
+    assert_includes([
+      :education, :recreational, :social, :diy, :charity,
+      :cooking, :relaxation, :music, :busywork
+    ], activity.type)
+    assert_equal 3, activity.participants
+    assert (0..1).cover?(activity.accessibility)
+    assert (0..1).cover?(activity.price)
+    assert [String, NilClass].include?(activity.link.class)
+  end
 end

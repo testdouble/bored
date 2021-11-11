@@ -14,18 +14,29 @@ module Bored
     keyword_init: true
   )
 
-  def self.now
-    json = JSON.parse(Net::HTTP.get(
-      "www.boredapi.com", "/api/activity"
-    ))
-    Activity.new(
-      id: json["key"].to_i,
-      description: json["activity"],
-      type: json["type"].to_sym,
-      participants: json["participants"],
-      accessibility: json["accessibility"],
-      price: json["price"],
-      link: json["link"].empty? ? nil : json["link"]
-    )
+  class << self
+    def now(participants: nil)
+      json = JSON.parse(Net::HTTP.get(uri(
+        {participants: participants}
+      )))
+      Activity.new(
+        id: json["key"].to_i,
+        description: json["activity"],
+        type: json["type"].to_sym,
+        participants: json["participants"],
+        accessibility: json["accessibility"],
+        price: json["price"],
+        link: json["link"].empty? ? nil : json["link"]
+      )
+    end
+
+    private
+
+    def uri(params)
+      uri = URI("https://www.boredapi.com/api/activity")
+      uri.query = URI.encode_www_form(params.reject { |_, p| p.nil? })
+
+      uri
+    end
   end
 end
