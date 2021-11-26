@@ -13,7 +13,6 @@ module Bored
     :accessibility, :price, :link,
     keyword_init: true
   )
-  ActivityError = Struct.new(:description, keyword_init: true)
 
   class << self
     def now(key: nil)
