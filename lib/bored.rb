@@ -20,7 +20,7 @@ module Bored
       json = JSON.parse(Net::HTTP.get(uri(
         {key: key}
       )))
-      return ActivityError.new(description: json["error"]) if json["error"]
+      raise Error.new(json["error"]) if json["error"]
 
       Activity.new(
         id: json["key"].to_i,

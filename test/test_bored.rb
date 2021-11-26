@@ -33,10 +33,9 @@ class TestBored < Minitest::Test
     ], activity.type)
   end
 
-  def test_that_it_gives_you_an_error_with_a_bad_key
-    activity = Bored.now(key: "bogus")
-
-    assert_kind_of String, activity.description
-    assert_equal "No activity found with the specified parameters", activity.description
+  def test_that_it_raises_an_error_with_a_bad_key
+    assert_raises Bored::Error do
+      Bored.now(key: "bogus")
+    end
   end
 end
