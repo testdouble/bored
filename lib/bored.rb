@@ -37,7 +37,7 @@ module Bored
 
     def uri(params)
       uri = URI("https://www.boredapi.com/api/activity")
-      uri.query = URI.encode_www_form(params.reject { |_, p| p.nil? })
+      uri.query = URI.encode_www_form(params.compact)
 
       uri
     end
