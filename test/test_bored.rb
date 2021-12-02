@@ -38,4 +38,10 @@ class TestBored < Minitest::Test
       Bored.now(key: "bogus")
     end
   end
+
+  def test_that_you_can_query_by_participants
+    activity = Bored.now(participants: 3)
+
+    assert_equal 3, activity.participants
+  end
 end
