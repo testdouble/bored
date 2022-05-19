@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bored (0.1.0)
+    bored (0.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -53,4 +53,4 @@ DEPENDENCIES
   standard
 
 BUNDLED WITH
-   2.2.30
+   2.3.14

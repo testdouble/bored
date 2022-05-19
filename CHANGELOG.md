@@ -1,5 +1,12 @@
 ## [Unreleased]
 
+## [0.2.0] - 2022-05-19
+
+- Add `--type` filter option in the CLI
+  [#15](https://github.com/testdouble/bored/pull/15) by
+  [@radglob](https://github.com/radglob) and
+  [@BrianBorge](@https://github.com/BrianBorge)
+
 ## [0.1.0] - 2021-12-02
 
 - Add filtering by Activity ID
