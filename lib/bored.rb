@@ -13,11 +13,8 @@ module Bored
   )
 
   class << self
-    def now(key: nil, participants: nil)
-      json = JSON.parse(Net::HTTP.get(uri({
-        key: key,
-        participants: participants
-      })))
+    def now(params = {})
+      json = JSON.parse(Net::HTTP.get(uri(params)))
       raise Error.new(json["error"]) if json["error"]
 
       Activity.new(

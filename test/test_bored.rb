@@ -51,4 +51,9 @@ class TestBored < Minitest::Test
       Bored.now(key: "1878070", participants: 2)
     end
   end
+
+  def test_that_we_handle_type_arguments
+    activity = Bored.now(type: "recreational")
+    assert_equal activity.type, :recreational
+  end
 end
